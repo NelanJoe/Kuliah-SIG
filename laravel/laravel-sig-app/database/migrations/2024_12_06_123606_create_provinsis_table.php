@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('provinsi', function (Blueprint $table) {
             $table->id();
-            $table->string("nama", 30)->unique()->nullable(false);
+            $table->string("name", 30)->unique();
             $table->string("alt_name", 30);
             $table->string("latitude");
             $table->string("longitude");

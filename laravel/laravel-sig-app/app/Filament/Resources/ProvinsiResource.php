@@ -23,7 +23,7 @@ class ProvinsiResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('nama')
+                Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(30),
                 Forms\Components\TextInput::make('alt_name')
@@ -42,7 +42,7 @@ class ProvinsiResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('nama')
+                Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('alt_name')
                     ->searchable(),
