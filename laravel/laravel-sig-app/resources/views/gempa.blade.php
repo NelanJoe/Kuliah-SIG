@@ -29,7 +29,6 @@
             box-sizing: border-box;
         }
 
-
         :root {
             font-family: "Poppins", serif;
         }
@@ -76,8 +75,11 @@
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
     <script>
-        const mapElement = document.querySelector(".map-view")
-        const map = L.map(mapElement).setView([-0.3155398750904368, 117.1371634207888], 4.8);
+        const mapElement = document.querySelector(".map-view");
+        const map = L.map(mapElement, {
+            center: [-0.3155398750904368, 117.1371634207888],
+            zoom: 4.8,
+        });
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
@@ -90,7 +92,7 @@
         const gempaTerkini = data.Infogempa.gempa;
         gempaTerkini.map((gempa) => {
             const [latitude, longitude] = gempa.Coordinates.split(",");
-            let marker = L.marker([latitude, longitude]).bindPopup(`
+            const marker = L.marker([latitude, longitude]).bindPopup(`
                 Waktu: ${gempa.Tanggal} - ${gempa.Jam}
                 <br/>
                 Kedalaman: ${gempa.Kedalaman}
